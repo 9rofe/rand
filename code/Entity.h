@@ -21,41 +21,40 @@ enum class Direction {
 
 class Entity
 {
-    public:
-        Entity();
-        Entity(Vector2f location);
-        virtual void Move(Direction direction,Time dt) = 0;
-        Vector2f GetLocation() const;
-        void SetLocation(Vector2f location);
-        virtual void SetSpeed(double speed) = 0;
-        double GetSpeed() const;
-    protected:
-        double m_speed;
-        Vector2f m_EntityLocation;
+public:
+    virtual void Move(Direction direction, Time dt) = 0;
+    Vector2f GetLocation() const;
+    void SetLocation(Vector2f location);
+    virtual void SetSpeed(double speed) = 0;
+    double GetSpeed() const;
+protected:
+    Entity(Vector2f location);
+    double m_speed;
+    Vector2f m_EntityLocation;
 };
 
 class Player : public Entity
 {
-    public:
-        Player(Vector2f location);
-        void Move(Direction direction,Time dt) override;
-        int GetLives() const;
-        void SetLives(int lives);
-        void SetSpeed(double speed) override;
-    private:
-        int m_playerLives;
+public:
+    Player(Vector2f location);
+    void Move(Direction direction, Time dt) override;
+    int GetLives() const;
+    void SetLives(int lives);
+    void SetSpeed(double speed) override;
+private:
+    int m_playerLives;
 };
 
 class Enemy : public Entity
 {
-    public:
-        Enemy(Vector2f location);
-        void Move(Direction direction,Time dt) override;
-        void SetSpeed(double speed) override;
-        Direction getDirection() const;
-        void SetDirection(Direction direction);
-    private:
-        Direction m_direction;
+public:
+    Enemy(Vector2f location);
+    void Move(Direction direction, Time dt) override;
+    void SetSpeed(double speed) override;
+    Direction getDirection() const;
+    void SetDirection(Direction direction);
+private:
+    Direction m_direction;
 };
 
 #endif

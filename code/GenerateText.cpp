@@ -2,6 +2,12 @@
 
 void Engine::GenerateText()
 {
+    font.loadFromFile("code/fonts/CrackMan.TTF");
+    if (!font.loadFromFile("code/fonts/CrackMan.TTF"))
+    {
+        /*error*/
+    }
+
     FloatRect textRect = feed.getLocalBounds();
     feed.setFont(font);
     feed.setCharacterSize(30);
@@ -52,7 +58,7 @@ void Engine::GenerateText()
     newHS.setOutlineThickness(1.0);
     newHS.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     newHS.setPosition(resolution.x / 10.0f, resolution.y / 10.0f);
-    
+
     endHS.setFont(font);
     endHS.setCharacterSize(40);
     endHS.setFillColor(Color::White);

@@ -1,15 +1,10 @@
 #include "Entity.h"
 //Entity
-Entity::Entity()
-{
-    m_speed = 0.0;
-    m_EntityLocation = {0.0, 0.0};
-}
-
 Entity::Entity(Vector2f coord)
 {
     m_EntityLocation = coord;
     m_speed = 210;
+
 }
 double Entity::GetSpeed() const
 {
@@ -79,11 +74,11 @@ Enemy::Enemy(Vector2f coord) : Entity(coord)
     m_direction = Direction::UP;
 }
 
-void Enemy::Move(Direction direction,Time dt)
+void Enemy::Move(Direction direction, Time dt)
 {
     if (m_direction == Direction::DOWN)
     {
-        
+
         m_EntityLocation.y -= m_speed * dt.asSeconds();
     }
     else if (m_direction == Direction::UP)

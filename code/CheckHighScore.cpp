@@ -4,7 +4,7 @@ void Engine::CheckHighScore(int newScore)
 {
     if (newScore > m_HighScore)
     {
-        m_OutputFile.open("PACMAN/scoreboard.txt", ofstream::trunc);
+        m_OutputFile.open("code/scoreboard.txt", ofstream::trunc);
         if (!m_OutputFile)
         {
             cout << "m_OutputFile failed to open" << endl;

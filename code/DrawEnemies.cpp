@@ -1,9 +1,9 @@
 #include "Engine.h"
 
 void Engine::DrawEnemies()
-{   
+{
     Texture text;
-    text.loadFromFile("PACMAN/Textures/Twitter.png");
+    text.loadFromFile("code/Textures/Twitter.png");
     for (int counter = 0; counter < 5; counter++)
     {
         Sprite new_Enemy;

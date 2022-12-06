@@ -22,7 +22,7 @@ vector<Rect<float>> Engine::GenerateWalls()
 			}
 			else
 				numWalls = rand() % 3 + 1;
-		}			
+		}
 		//cout << "numWalls: " << numWalls << endl;
 		wallSize = { (resolution.x - (5 * spaces.x)) / 4, (resolution.y - ((numWalls + 1) * spaces.y)) / numWalls };
 		//positionTracker = { spaces.x * i, 0.0 };

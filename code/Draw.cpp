@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 void Engine::Draw()
-{   
+{
     m_Window.clear();
 
     DrawWalls(m_wallsMap);
@@ -11,10 +11,10 @@ void Engine::Draw()
     //Draws "Player"
     Sprite dd_player;
     Texture text;
-    text.loadFromFile("PACMAN/Textures/ElonMusk.png");
+    text.loadFromFile("code/Textures/ElonMusk.png");
     dd_player.setTexture(text);
     dd_player.setScale(.8, 1.0);
-    
+
     dd_player.setPosition(m_Player->GetLocation());
     m_Window.draw(dd_player);
 
@@ -31,9 +31,7 @@ void Engine::Draw()
         CheckHighScore(currentScore);
         m_Window.draw(newHS);
         m_Window.draw(endHS);
-        m_Window.draw(gameover);          
+        m_Window.draw(gameover);
     }
     m_Window.display();
-    
-
 }
