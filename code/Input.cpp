@@ -10,7 +10,7 @@ void Engine::Input()
             // Quit the game when the window is closed
             m_Window.close();
         }
-
+        
         if (event.type == sf::Event::KeyPressed)
         {
             if (Keyboard::isKeyPressed(Keyboard::Space) && dead)

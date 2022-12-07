@@ -45,5 +45,4 @@ Engine::Engine()
     //draw once before loop
     DrawWalls(m_wallsMap);
     DrawItems(m_dotsMap, m_fruitMap);
-    //cout << "contructor complete" << endl;
 }

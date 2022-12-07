@@ -1,48 +1,66 @@
 #include "Item.h"
 
 //item definitions
-Item::Item()
-{
-    item.left = 0.0;
-    item.top = 0.0;
-    item.width = 0.0;
-    item.height = 0.0;
-}
-
 Item::Item(Vector2f location, Vector2f size)
 {
-    item.left = location.x;
-    item.top = location.y;
-    item.width = size.x;
-    item.height = size.y;
+    cout << "constructor called" <<  endl;
+    item = new Rect<float>(location, size);
 }
 
 Vector2f Item::GetLocation() const
 {
-    return { item.left, item.top };
+    return { item->left, item->top };
 }
 
 void Item::SetLocation(Vector2f location)
 {
-    item.left = location.x;
-    item.top = location.y;
+    item->left = location.x;
+    item->top = location.y;
 }
 
 Vector2f Item::GetSize() const
 {
-    return { item.width, item.height };
+    return { item->width, item->height };
 }
 
 void Item::SetSize(Vector2f location)
 {
-    item.width = location.x;
-    item.height = location.y;
+    item->width = location.x;
+    item->height = location.y;
 }
 
-Rect<float> Item::GetRect() const
+Rect<float>* Item::GetRect() const
 {
     return item;
 }
+
+//deconstr
+Item::~Item()
+{
+    cout << "deconstructor called" <<  endl;
+    delete item;
+}
+
+//copy constr
+Item::Item(const Item &origItem)
+{
+    cout << "copy constructor called." << endl;
+    item = new Rect<float>;
+   *item = *(origItem.item);
+}
+
+//assignment op
+Item& Item::operator=(const Item& objToCopy)
+{
+   cout << "Assignment op called." << endl;
+   if (this != &objToCopy) {          
+        delete item;                  
+        item = new Rect<float>;               
+        *item = *(objToCopy.item); 
+   }
+   return *this;
+}
+
 
 //dot definitions
 Dot::Dot(Vector2f location, Vector2f size) : Item(location, size)

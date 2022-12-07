@@ -62,7 +62,7 @@ private:
     void CheckHighScore(int newScore);
     void WallCollision();
     bool EnemyCollision(Rect<float> playerRect);
-    bool ItemCollision(Rect<float> playerRect);
+    bool ItemCollision(Rect<float> &playerRect);
     void BoarderDetection();
     Vector2f spaces;
     void DrawEnemies();

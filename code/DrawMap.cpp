@@ -24,9 +24,9 @@ void Engine::DrawItems(list<Item*> dots, list<Item*> fruit)
 {
 	Texture text;
 	text.loadFromFile("code/Textures/BitcoinLogo.png");
-	for (auto iter = dots.begin(); iter != dots.end(); ++iter) {
+	for (list<Item*>::iterator iter = dots.begin(); iter != dots.end(); ++iter) {
 		//Vector2f dotSize = (iter->GetSize());
-		Vector2f dotPos = ((*iter)->GetLocation());
+		Vector2f dotPos = (*iter)->GetLocation();
 		Sprite dot_Sprite;
 		dot_Sprite.setTexture(text);
 		dot_Sprite.setPosition(dotPos);
@@ -35,9 +35,9 @@ void Engine::DrawItems(list<Item*> dots, list<Item*> fruit)
 		m_Window.draw(dot_Sprite);
 	}
 	text.loadFromFile("code/Textures/TeslaLogo2.png");
-	for (auto iter = fruit.begin(); iter != fruit.end(); ++iter) {
+	for (list<Item*>::iterator iter = fruit.begin(); iter != fruit.end(); ++iter) {
 		//Vector2f fruitSize = { iter->width, iter->height };
-		Vector2f fruitPos = ((*iter)->GetLocation());
+		Vector2f fruitPos = (*iter)->GetLocation();
 		Sprite fruit_Sprite;
 		fruit_Sprite.setTexture(text);
 		fruit_Sprite.setPosition(fruitPos);

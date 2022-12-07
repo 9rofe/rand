@@ -3,7 +3,6 @@
 //generate once each round
 list<Item*> Engine::GenerateDots()
 {
-
 	list<Item*> dotMap;
 	Vector2f dotSize = { resolution.x / 96, resolution.y / 54 };
 	float wallWidth = (resolution.x - (5 * (resolution.x / 16))) / 4;
@@ -12,7 +11,7 @@ list<Item*> Engine::GenerateDots()
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			Dot* dot_ptr = new Dot(dotPos, dotSize);
+			Item* dot_ptr = new Dot(dotPos, dotSize);
 			dotMap.emplace_back(dot_ptr);
 			dotPos.y += (resolution.y / 10);
 		}
@@ -32,7 +31,7 @@ list<Item*> Engine::GenerateFruit()
 	Vector2f fruitPos = { ((resolution.x / 16) / 3) - (resolution.x / 192), (resolution.y / 2) - (resolution.y / 108) };
 	for (int i = 0; i < 5; i++)
 	{
-		Fruit* fruit_ptr = new Fruit(fruitPos, fruitSize);
+		Item* fruit_ptr = new Fruit(fruitPos, fruitSize);
 		fruitMap.emplace_back(fruit_ptr);
 		fruitPos.x += ((resolution.x / 16) + wallWidth);
 	}
